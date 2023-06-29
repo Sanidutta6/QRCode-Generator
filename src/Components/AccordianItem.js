@@ -33,7 +33,7 @@ const AccordianItem = ({ heading, children }) => {
       </h2>
       <div className={isOpen?"":"hidden"}>
         <div className="py-5 px-4 bg-color-7 rounded-3xl">
-          <p className="mb-1 text-color-5">{children}</p>
+          <div className="mb-1 text-color-5">{children}</div>
         </div>
       </div>
     </div>

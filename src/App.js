@@ -98,8 +98,11 @@ function App() {
             <div className="mb-8 flex items-center justify-center">
               <QRCode content={"helloworld"} />
             </div>
-
             <Accordian />
+            <div className="flex items-center justify-center gap-8">
+              <button className="text-color-5 bg-color-3 rounded-2xl text-sm px-4 py-2">JPEG</button>
+              <button className="text-color-5 bg-color-4 rounded-2xl text-sm px-4 py-2">PNG</button>
+            </div>
           </div>
         </div>
       </div>
