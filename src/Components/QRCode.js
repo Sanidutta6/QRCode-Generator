@@ -9,9 +9,13 @@ const QRCode = ({ content }) => {
       new QRCodeStyling({
         width: 150,
         height: 150,
+        type: "svg",
         dotsOptions: {
-          color: "#4267b2",
+          color: "#FFFFFF",
           type: "rounded",
+        },
+        backgroundOptions: {
+          color: "#00288A",
         },
         imageOptions: {
           crossOrigin: "anonymous",
