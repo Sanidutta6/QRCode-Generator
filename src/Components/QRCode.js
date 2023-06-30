@@ -1,40 +1,18 @@
-import React, { useRef, useEffect, useMemo } from "react";
+import React, { useRef, useEffect, useContext } from "react";
 import QRCodeStyling from "qr-code-styling";
+import QRContext from "../Context/QRContext";
 
-const QRCode = ({ content }) => {
+const QRCode = () => {
   const ref = useRef(null);
-
-  const qrCode = useMemo(
-    () =>
-      new QRCodeStyling({
-        width: 150,
-        height: 150,
-        type: "svg",
-        dotsOptions: {
-          color: "#FFFFFF",
-          type: "rounded",
-        },
-        backgroundOptions: {
-          color: "#00288A",
-        },
-        imageOptions: {
-          crossOrigin: "anonymous",
-          margin: 20,
-        },
-        data: "https://qr-code-styling.com",
-      }),
-    []
-  );
+  const qrCodeOptions = useContext(QRContext);
 
   useEffect(() => {
+    const qrCode = new QRCodeStyling(qrCodeOptions);
     qrCode.append(ref.current);
-  }, [qrCode]);
-
-  useEffect(() => {
     qrCode.update({
-      data: content,
+      data: qrCodeOptions.data,
     });
-  }, [content, qrCode]);
+  }, [qrCodeOptions]);
 
   return <div ref={ref}></div>;
 };

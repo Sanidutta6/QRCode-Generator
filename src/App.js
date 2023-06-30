@@ -96,7 +96,7 @@ function App() {
           {/* <!-- QR Section --> */}
           <div className="max-w-lg w-2/6 rounded-xl border border-gray-200 bg-color-2 p-6 shadow">
             <div className="mb-8 flex items-center justify-center">
-              <QRCode content={"helloworld"} />
+              <QRCode />
             </div>
             <Accordian />
             <div className="flex items-center justify-center gap-8">

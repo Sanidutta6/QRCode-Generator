@@ -56,7 +56,7 @@ const Accordian = () => {
               className="bg-color-7 border outline-none border-gray-300 text-color-5 text-sm rounded-lg block w-full p-2.5"
             >
               <option value="square">Square</option>
-              <option value="dots" selected>
+              <option value="dots" defaultChecked>
                 Dots
               </option>
               <option value="rounded">Rounded</option>
@@ -92,7 +92,7 @@ const Accordian = () => {
               id="countries"
               className="bg-color-7 border outline-none border-gray-300 text-color-5 text-sm rounded-lg block w-full p-2.5"
             >
-              <option value="none" selected>
+              <option value="none" defaultChecked>
                 None
               </option>
               <option value="square">Square</option>

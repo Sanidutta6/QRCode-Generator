@@ -13,10 +13,10 @@ const ColorSelection = ({id}) => {
               <input
                 id={`${id}-single`}
                 type="radio"
-                value=""
+                defaultValue={"single color"}
                 name={`list-radio-${id}-1`}
                 className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300"
-                checked
+                defaultChecked
               />
               <label
                 htmlFor={`${id}-single`}
@@ -31,7 +31,7 @@ const ColorSelection = ({id}) => {
               <input
                 id={`${id}-gradient`}
                 type="radio"
-                value=""
+                defaultValue={"color gradient"}
                 name={`list-radio-${id}-1`}
                 className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300"
               />
@@ -55,10 +55,10 @@ const ColorSelection = ({id}) => {
               <input
                 id={`${id}-gradient-linear`}
                 type="radio"
-                value=""
+                defaultValue={"linear"}
                 name={`list-radio-${id}-2`}
                 className="w-4 h-4 text-blue-600 bg-color-7 border-gray-300"
-                checked
+                defaultChecked
               />
               <label
                 htmlFor={`${id}-gradient-linear`}
@@ -73,7 +73,7 @@ const ColorSelection = ({id}) => {
               <input
                 id={`${id}-gradient-radial`}
                 type="radio"
-                value=""
+                defaultValue={"radial"}
                 name={`list-radio-${id}-2`}
                 className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300"
               />
@@ -94,12 +94,12 @@ const ColorSelection = ({id}) => {
         <ul className="items-center w-full text-sm font-medium text-color-5 bg-color-7 border border-gray-200 rounded-lg sm:flex">
           <li className="w-full border-b border-gray-200 sm:border-b-0 sm:border-r">
             <div className="flex items-center justify-center">
-              <input type="color" value="" className="" />
+              <input type="color" value="#000000" onChange={() => ("")} className="" />
             </div>
           </li>
           <li className="w-full border-b border-gray-200 sm:border-b-0 sm:border-r">
             <div className="flex items-center justify-center">
-              <input type="color" value="" className="" />
+              <input type="color" value="#000000" onChange={() => ("")} className="" />
             </div>
           </li>
         </ul>
