@@ -1,6 +1,7 @@
 import "./App.css";
 import QRCode from "./Components/QRCode";
 import Accordian from "./Components/Accordian";
+import QRContextProvider from "./Components/QRContextProvider";
 
 function App() {
   return (
@@ -95,14 +96,20 @@ function App() {
 
           {/* <!-- QR Section --> */}
           <div className="max-w-lg w-2/6 rounded-xl border border-gray-200 bg-color-2 p-6 shadow">
-            <div className="mb-8 flex items-center justify-center">
-              <QRCode />
-            </div>
-            <Accordian />
-            <div className="flex items-center justify-center gap-8">
-              <button className="text-color-5 bg-color-3 rounded-2xl text-sm px-4 py-2">JPEG</button>
-              <button className="text-color-5 bg-color-4 rounded-2xl text-sm px-4 py-2">PNG</button>
-            </div>
+            <QRContextProvider>
+              <div className="mb-8 flex items-center justify-center">
+                <QRCode />
+              </div>
+              <Accordian />
+              <div className="flex items-center justify-center gap-8">
+                <button className="text-color-5 bg-color-3 rounded-2xl text-sm px-4 py-2">
+                  JPEG
+                </button>
+                <button className="text-color-5 bg-color-4 rounded-2xl text-sm px-4 py-2">
+                  PNG
+                </button>
+              </div>
+            </QRContextProvider>
           </div>
         </div>
       </div>

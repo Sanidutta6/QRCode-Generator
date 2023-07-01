@@ -1,45 +1,45 @@
-import React from "react";
+import React, { useContext } from "react";
 import AccordianItem from "./AccordianItem";
 import ColorSelection from "./ColorSelection";
+import Input from "./Input";
+import QRContext from "../Context/QRContext";
 
 const Accordian = () => {
+  const { qrCodeOptions, updateQRCodeOptions } = useContext(QRContext);
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    updateQRCodeOptions((prevOptions) => ({
+      ...prevOptions,
+      [name]: value,
+    }));
+  };
+
   return (
     <div className="bg-color-2 text-white flex flex-col gap-4 max-h-[210px] overflow-auto">
       <AccordianItem heading={"Shape"}>
         <form>
-          <div className="flex">
-            <span className="inline-flex items-center px-2 text-sm text-color-6 bg-color-5 border-none rounded-l-md">
-              Height
-            </span>
-            <input
-              type="number"
-              id="height"
-              className="outline-none rounded-none rounded-r-lg bg-color-7 border text-color-5 block flex-1 min-w-0 w-full text-sm border-color-5 p-2"
-              defaultValue={300}
-            />
-          </div>
-          <div className="flex mt-4">
-            <span className="inline-flex items-center px-2 text-sm text-color-6 bg-color-5 border-none rounded-l-md">
-              Width
-            </span>
-            <input
-              type="number"
-              id="width"
-              className="outline-none rounded-none rounded-r-lg bg-color-7 border text-color-5 block flex-1 min-w-0 w-full text-sm border-color-5 p-2"
-              defaultValue={300}
-            />
-          </div>
-          <div className="flex mt-4">
-            <span className="inline-flex items-center px-2 text-sm text-color-6 bg-color-5 border-none rounded-l-md">
-              Margin
-            </span>
-            <input
-              type="number"
-              id="margin"
-              className="outline-none rounded-none rounded-r-lg bg-color-7 border text-color-5 block flex-1 min-w-0 w-full text-sm border-color-5 p-2"
-              defaultValue={0}
-            />
-          </div>
+          <Input
+            type="number"
+            label="Height"
+            name="height"
+            value={qrCodeOptions.height}
+            onChange={(event) => handleInputChange(event)}
+          />
+          <Input
+            type="number"
+            label="Width"
+            name="width"
+            value={qrCodeOptions.width}
+            onChange={handleInputChange}
+          />
+          <Input
+            type="number"
+            label="Margin"
+            name="margin"
+            value={qrCodeOptions.margin}
+            onChange={handleInputChange}
+          />
         </form>
       </AccordianItem>
       <AccordianItem heading={"Dots Options"}>
@@ -66,17 +66,7 @@ const Accordian = () => {
             </select>
           </div>
           <ColorSelection id={"one"} />
-          <div className="flex mt-4">
-            <span className="inline-flex items-center px-2 text-sm text-color-6 bg-color-5 border-none rounded-l-md">
-              Rotation
-            </span>
-            <input
-              type="number"
-              id="rotation"
-              className="outline-none rounded-none rounded-r-lg bg-color-7 border text-color-5 block flex-1 min-w-0 w-full text-sm border-color-5 p-2"
-              defaultValue={0}
-            />
-          </div>
+          <Input type="number" label="Rotation" value={0} />
         </form>
       </AccordianItem>
       <AccordianItem heading={"Corner Square Options"}>
@@ -101,67 +91,25 @@ const Accordian = () => {
             </select>
           </div>
           <ColorSelection id={"two"} />
-          <div className="flex mt-4">
-            <span className="inline-flex items-center px-2 text-sm text-color-6 bg-color-5 border-none rounded-l-md">
-              Rotation
-            </span>
-            <input
-              type="number"
-              id="rotation"
-              className="outline-none rounded-none rounded-r-lg bg-color-7 border text-color-5 block flex-1 min-w-0 w-full text-sm border-color-5 p-2"
-              defaultValue={0}
-            />
-          </div>
+          <Input type="number" label="Rotation" value={0} />
         </form>
       </AccordianItem>
       <AccordianItem heading={"Corner Dots Options"}>
         <form>
-        <ColorSelection id={"three"} />
+          <ColorSelection id={"three"} />
         </form>
       </AccordianItem>
       <AccordianItem heading={"Background Options"}>
-        <form>
-        </form>
+        <form></form>
       </AccordianItem>
       <AccordianItem heading={"QR Options"}>
-        <form>
-        </form>
+        <form></form>
       </AccordianItem>
       <AccordianItem heading={"Logo"}>
         <form>
-          <div className="flex">
-            <span className="inline-flex items-center px-2 text-sm text-color-6 bg-color-5 border-none rounded-l-md">
-              LOGO
-            </span>
-            <input
-              type="url"
-              id="margin"
-              className="outline-none rounded-none rounded-r-lg bg-color-7 border text-color-5 block flex-1 min-w-0 w-full text-sm border-color-5 p-2"
-              placeholder="Paste URL"
-            />
-          </div>
-          <div className="flex mt-4">
-            <span className="inline-flex items-center px-2 text-sm text-color-6 bg-color-5 border-none rounded-l-md">
-              Image Size
-            </span>
-            <input
-              type="number"
-              id="image-size"
-              className="outline-none rounded-none rounded-r-lg bg-color-7 border text-color-5 block flex-1 min-w-0 w-full text-sm border-color-5 p-2"
-              defaultValue={0}
-            />
-          </div>
-          <div className="flex  mt-4">
-            <span className="inline-flex items-center px-2 text-sm text-color-6 bg-color-5 border-none rounded-l-md">
-              Margin
-            </span>
-            <input
-              type="number"
-              id="logo-margin"
-              className="outline-none rounded-none rounded-r-lg bg-color-7 border text-color-5 block flex-1 min-w-0 w-full text-sm border-color-5 p-2"
-              defaultValue={0}
-            />
-          </div>
+          <Input type="url" label="LOGO" value={"Paste URL"} />
+          <Input type="number" label="Image Size" value={0} />
+          <Input type="number" label="Margin" value={0} />
         </form>
       </AccordianItem>
     </div>

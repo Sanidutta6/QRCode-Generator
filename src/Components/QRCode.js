@@ -4,7 +4,7 @@ import QRContext from "../Context/QRContext";
 
 const QRCode = () => {
   const ref = useRef(null);
-  const qrCodeOptions = useContext(QRContext);
+  const qrCodeOptions = useContext(QRContext).qrCodeOptions;
 
   useEffect(() => {
     const qrCode = new QRCodeStyling(qrCodeOptions);

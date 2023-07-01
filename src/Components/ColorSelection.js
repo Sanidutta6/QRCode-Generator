@@ -94,12 +94,12 @@ const ColorSelection = ({id}) => {
         <ul className="items-center w-full text-sm font-medium text-color-5 bg-color-7 border border-gray-200 rounded-lg sm:flex">
           <li className="w-full border-b border-gray-200 sm:border-b-0 sm:border-r">
             <div className="flex items-center justify-center">
-              <input type="color" value="#000000" onChange={() => ("")} className="" />
+              <input type="color" value="#000000" onChange={() => ("")} className="bg-color-7" />
             </div>
           </li>
           <li className="w-full border-b border-gray-200 sm:border-b-0 sm:border-r">
             <div className="flex items-center justify-center">
-              <input type="color" value="#000000" onChange={() => ("")} className="" />
+              <input type="color" value="#000000" onChange={() => ("")} className="bg-color-7" />
             </div>
           </li>
         </ul>
