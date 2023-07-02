@@ -6,28 +6,41 @@ const QRContextProvider = ({ children }) => {
     width: 150,
     height: 150,
     type: "svg",
+    margin: 0,
+    data: "https://qr-code-styling.com",
     dotsOptions: {
-      color: "#FFFFFF",
       type: "rounded",
+      color: "#000000",
     },
     backgroundOptions: {
-      color: "#00288A",
+      color: "#FFFFFF",
     },
     imageOptions: {
+      hideBackgroundDots: "true",
+      imageSize: "0",
       crossOrigin: "anonymous",
       margin: 20,
     },
-    data: "https://qr-code-styling.com",
+    cornersSquareOptions: {
+      type: "square",
+      color: "#000000",
+    },
+    cornersDotOptions: {
+      type: "rounded",
+      color: "#000000",
+    },
   };
 
   const [qrCodeOptions, setQRCodeOptions] = useState(initialQRCodeOptions);
 
   const updateQRCodeOptions = (newOptions) => {
-    // console.log(newOptions())
     setQRCodeOptions((prevOptions) => ({
       ...prevOptions,
-      ...newOptions(),
+      ...(typeof newOptions === "function"
+        ? newOptions(prevOptions)
+        : newOptions),
     }));
+    // console.log(qrCodeOptions);
   };
 
   const contextValue = {

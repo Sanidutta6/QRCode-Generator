@@ -29,7 +29,7 @@ function App() {
             </div>
 
             {/* <!-- Link --> */}
-            <div className="">
+            <div className="h-9 hover:bg-color-6 hover:text-color-5 hover:rounded-full">
               <img
                 className="h-6"
                 src="https://www.svgrepo.com/show/505044/url-checker.svg"
