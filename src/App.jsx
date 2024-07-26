@@ -85,7 +85,7 @@ export default function App() {
             <DialogDescription>Scan this QR code to access your content.</DialogDescription>
           </DialogHeader>
           <div className="flex justify-center mb-4">
-            <img src="/placeholder.svg" width={300} height={300} alt="QR Code" />
+            <img src={qrCodeData} width={300} height={300} alt="QR Code" />
           </div>
           <DialogFooter>
             <Button onClick={() => setQrCodeModalOpen(false)}>Close</Button>
